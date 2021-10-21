@@ -43,12 +43,12 @@
   
   services.emacs = {
     enable = true; 
-    config = ./config/emacs/init.el
+    # config = ./config/emacs/init.el;
     package = with pkgs; (emacsWithPackages (with emacsPackagesNg; [
       exwm
       nix-mode
     ]));
-  }
+  };
   
   environment.interactiveShellInit = ''
     alias hist='history | grep'
@@ -72,7 +72,7 @@
     windowManager.session = lib.singleton {
       name = "exwm";
       start = ''
-	      ${pkgs.dbus.dbus-launch} --exit-with-session emacs -mm --fullscreen -l /home/eno/init.el
+	      ${pkgs.dbus.dbus-launch} --exit-with-session emacs -mm --fullscreen -l /etc/nixos/config/emacs/init.el
       '';
     };
 
