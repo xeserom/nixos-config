@@ -1,1 +1,1 @@
-# system
+# nixos-config
