@@ -26,3 +26,6 @@
 
 (global-set-key (kbd "s-<left>") 'previous-buffer)
 (global-set-key (kbd "s-<right>") 'next-buffer)
+
+(server-force-delete)
+(server-start)
