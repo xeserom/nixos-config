@@ -5,6 +5,7 @@
 (require 'exwm-config)
 (exwm-config-example)
 
+(desktop-save-mode 1)
 (load-theme 'solarized-selenized-dark t)
 
 ;; Disable auto-save and auto-backup
@@ -22,3 +23,6 @@
 ;; (add-hook 'find-file-hook 'linum-mode)
 ;; (add-hook 'text-mode-hook 'linum-mode)
 ;; (add-hook 'prog-mode-hook 'linum-mode)
+
+(global-set-key (kbd "s-<left>") 'previous-buffer)
+(global-set-key (kbd "s-<right>") 'next-buffer)

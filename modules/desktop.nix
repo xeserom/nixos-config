@@ -39,12 +39,15 @@
     gnumake
     gcc
     firefox
+    file
+    jdk
   ];
   
   services.emacs.enable = true; 
   
   environment.interactiveShellInit = ''
     alias hist='history | grep'
+    alias r='emacsclient'
   '';
   
   networking = {
