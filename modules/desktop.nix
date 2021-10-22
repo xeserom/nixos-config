@@ -41,14 +41,7 @@
     firefox
   ];
   
-  services.emacs = {
-    enable = true; 
-    # config = ./config/emacs/init.el;
-    package = with pkgs; (emacsWithPackages (with emacsPackagesNg; [
-      exwm
-      nix-mode
-    ]));
-  };
+  services.emacs.enable = true; 
   
   environment.interactiveShellInit = ''
     alias hist='history | grep'
