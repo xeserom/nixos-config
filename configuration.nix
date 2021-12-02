@@ -4,5 +4,6 @@
 
     ./modules/desktop.nix
     ./modules/emacs.nix
+    ./modules/packages.nix
   ];
 }

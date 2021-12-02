@@ -1,5 +1,4 @@
 ;; https://www.masteringemacs.org/article/mastering-key-bindings-emacs
-;;
 
 (require 'exwm)
 (require 'exwm-config)
@@ -22,10 +21,26 @@
 
 ;; (add-hook 'find-file-hook 'linum-mode)
 ;; (add-hook 'text-mode-hook 'linum-mode)
-;; (add-hook 'prog-mode-hook 'linum-mode)
+
+;; (setq linum-format "%4d ")
+;; (setq-default left-fringe-width  0)
+;; (setq-default right-fringe-width 0)
+;; (set-face-attribute 'fringe nil :background "black")
+
+(defun foo()
+  "Test"
+  (hl-line-mode)
+  (linum-mode))
+
+(add-hook 'prog-mode-hook 'foo)
+
+;;(add-hook 'emacs-lisp-mode-hook
+;;	  (lambda ()
+;;	    (local-set-key (kbd "C-c c") 'eval-buffer)))
 
 (global-set-key (kbd "s-<left>") 'previous-buffer)
 (global-set-key (kbd "s-<right>") 'next-buffer)
+(global-set-key (kbd "s-<return>") 'multi-vterm)
 
 (server-force-delete)
 (server-start)

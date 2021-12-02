@@ -16,11 +16,13 @@
 
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
+  hardware.bluetooth.enable = true;
+  hardware.pulseaudio.enable = true;
   
   users.users.eno = {
     isNormalUser = true;
     hashedPassword = "$6$u1pVhQo0$VpEVDPpDc5ctm5U4kKo.1IaTGswB5U5Bpym6Q/0nYz2zSJ6ass1iVjgjKYSam4C6c3QFnM951qwf1u9IbYJTz/";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "audio" ];
   };
 
   nixpkgs.overlays = [
@@ -29,25 +31,12 @@
     }))
   ];
   
-  environment.systemPackages = with pkgs; [
-    surf
-    curl
-    wget
-    git
-    xclip
-    cmake
-    gnumake
-    gcc
-    firefox
-    file
-    jdk
-  ];
-  
-  services.emacs.enable = true; 
+  services.emacs.enable = true;
+  services.blueman.enable = true;
   
   environment.interactiveShellInit = ''
     alias hist='history | grep'
-    alias r='emacsclient'
+    alias r='emacsclient -n'
   '';
   
   networking = {
