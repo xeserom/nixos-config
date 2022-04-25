@@ -4,9 +4,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   
-  networking.useDHCP = false;
-  networking.interfaces.enp0s25.useDHCP = true;
-  networking.interfaces.wlp3s0.useDHCP = true;
+  #networking.interfaces.enp0s25.useDHCP = true;
+  #networking.interfaces.wlp3s0.useDHCP = true;
+  networking.useDHCP = true;
   
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -16,7 +16,7 @@
 
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
-  hardware.bluetooth.enable = true;
+  #hardware.bluetooth.enable = true;
   hardware.pulseaudio.enable = true;
   
   users.users.eno = {
@@ -32,7 +32,7 @@
   ];
   
   services.emacs.enable = true;
-  services.blueman.enable = true;
+  #services.blueman.enable = true;
   
   environment.interactiveShellInit = ''
     alias hist='history | grep'
@@ -44,7 +44,7 @@
     firewall.allowedTCPPorts = [ 8000 ];
     wireless = {
       enable = true;
-      interfaces = [ "wlp3s0" ];
+      interfaces = [ "wlp0s20f0u4" ]; # What if adapter doesn't exist?
       networks.googlehome.pskRaw = "8a62ea945411c3f0f25e5d5b86f07bf7e7a0310371279a00407d2005990c3dc1";
     };
   };
@@ -53,19 +53,21 @@
     enable = true;
     autorun = true;
     layout = "us";
+    windowManager.dwm.enable = true;
+    #windowManager.stumpwm.enable = true;
     
-    windowManager.session = lib.singleton {
-      name = "exwm";
-      start = ''
-	      ${pkgs.dbus.dbus-launch} --exit-with-session emacs -mm --fullscreen -l /etc/nixos/config/emacs/init.el
-      '';
-    };
+    #windowManager.session = lib.singleton {
+    #  name = "exwm";
+    #  start = ''
+	  #    ${pkgs.dbus.dbus-launch} --exit-with-session emacs -mm --fullscreen -l /etc/nixos/config/emacs/init.el
+    #  '';
+    #};
 
-    libinput = {
-      enable = true;
-      touchpad.naturalScrolling = true;
-    };
+    #libinput = {
+    #  enable = true;
+    #  touchpad.naturalScrolling = true;
+    #};
   };
 
-  system.stateVersion = "21.05";
+  system.stateVersion = "21.11";
 }
