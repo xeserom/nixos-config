@@ -9,6 +9,7 @@ let
     python38Packages.keystone-engine
     python38Packages.capstone
     python38Packages.unicorn
+    python38Packages.pwntools
     curl
     wget
     git
@@ -21,9 +22,9 @@ let
     gcc
     manpages
     nasm
-    automake
+    #automake
     ghidra-bin
-    dmenu
+    rofi
   ];
 in {
   environment.systemPackages = packages;

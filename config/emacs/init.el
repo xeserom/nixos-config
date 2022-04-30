@@ -4,11 +4,10 @@
 ;; Disable auto-save and auto-backup
 (setq auto-save-default nil)
 (setq make-backup-files nil)
-
 (setq visible-bell t)
 
 ;; Naked Emacs
-(toggle-frame-fullscreen)
+;; (toggle-frame-fullscreen)
 (tool-bar-mode 0)
 (toggle-scroll-bar 0) 
 (menu-bar-mode 0)
@@ -26,9 +25,15 @@
 	    (hl-line-mode)
 	    (linum-mode)))
 
-(global-set-key (kbd "s-<left>") 'previous-buffer)
-(global-set-key (kbd "s-<right>") 'next-buffer)
-(global-set-key (kbd "s-<return>") 'multi-vterm)
+(global-set-key (kbd "C-,") 'previous-buffer)
+(global-set-key (kbd "C-.") 'next-buffer)
+(global-set-key (kbd "C-<return>")
+		(lambda ()
+		  (interactive)
+		  (split-window-right)
+		  (other-window 1 )
+		  (multi-vterm)))
+	       
 
 ;; (global-set-key (kbd "C-j") 'left-char)
 ;; (global-set-key (kbd "C-k") 'previous-line)
