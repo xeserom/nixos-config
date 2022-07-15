@@ -12,7 +12,7 @@ let
       extraEmacsPackages = epkgs: [
         epkgs.solarized-theme
         epkgs.autothemer
-	      epkgs.nix-mode
+	      #epkgs.nix-mode
 	      epkgs.vterm
         # epkgs.realgud
         #epkgs.realgud-jdb

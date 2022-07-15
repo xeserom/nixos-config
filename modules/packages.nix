@@ -25,6 +25,9 @@ let
     #automake
     ghidra-bin
     rofi
+    alacritty
+    greetd.tuigreet
+    android-studio # not free
   ];
 in {
   environment.systemPackages = packages;

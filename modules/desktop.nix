@@ -1,6 +1,14 @@
 { config, pkgs, lib, ... }:
 
 {
+  nix = {
+   package = pkgs.nixFlakes;
+   extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
+     "experimental-features = nix-command flakes";
+  };
+
+  nixpkgs.config.allowUnfree = true; 
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
    
@@ -52,18 +60,17 @@
     };
     
     emacs.enable = true;
-    services.blueman.enable = true;
+    blueman.enable = true;
   };
     
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
       url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
     }))
-    
+   
     (self: super: {
-      dwm = super.dwm.overrideAttrs (oldAttrs: rec {        
-        configFile = super.writeText "config.h" (builtins.readFile ../config/dwm/dwm-config.h);
-        postPatch = oldAttrs.postPatch or "" + "\necho 'Using own config file...'\n cp ${configFile} config.def.h";
+      dwm = super.dwm.overrideAttrs (oldAttrs: rec {
+	src = builtins.fetchGit https://github.com/xeserom/dwm;
       });
     })
   ];
