@@ -20,7 +20,7 @@ let
     unzip
     gdb
     gcc
-    manpages
+    man-pages
     nasm
     #automake
     ghidra-bin
