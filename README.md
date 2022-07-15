@@ -1,5 +1,5 @@
 # nixos-config
 
-`sudo nixos-rebuild switch --impure --flake '~/nixos-config#desktop'`  
-`sudo nixos-rebuild switch --impure --flake '~/nixos-config#laptop'`
+`sudo nixos-rebuild switch --impure --flake '.#desktop'`  
+`sudo nixos-rebuild switch --impure --flake '.#laptop'`  
 
