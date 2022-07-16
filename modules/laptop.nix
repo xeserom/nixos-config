@@ -1,5 +1,3 @@
-{ config, pkgs, lib, ... }:
-
 {
   services.xserver.libinput = {
     enable = true;

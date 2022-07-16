@@ -22,12 +22,12 @@ let
     gcc
     man-pages
     nasm
-    #automake
     ghidra-bin
     rofi
     alacritty
-    greetd.tuigreet
-    android-studio # not free
+    android-studio
+    rtorrent
+    mpv
   ];
 in {
   environment.systemPackages = packages;
