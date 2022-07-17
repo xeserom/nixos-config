@@ -6,6 +6,12 @@
     ./packages.nix
   ];
 
+  nix = {
+   package = pkgs.nixFlakes;
+   extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
+     "experimental-features = nix-command flakes";
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   i18n.defaultLocale = "en_US.UTF-8";
