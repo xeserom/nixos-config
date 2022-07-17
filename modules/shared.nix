@@ -69,8 +69,7 @@
       dwm = super.dwm.overrideAttrs (oldAttrs: rec {
 	src = builtins.fetchGit {
 	  url = "https://github.com/xeserom/dwm";
-          #ref = "HEAD";
-	  rev = "a69c43b5027b915f6ec301894ee4c70f9e652ac6";
+          ref = "HEAD";
 	};
       });
     })
