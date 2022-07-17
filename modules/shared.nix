@@ -8,12 +8,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  nix = {
-   package = pkgs.nixFlakes;
-   extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
-     "experimental-features = nix-command flakes";
-  };
- 
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
@@ -62,7 +56,7 @@
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
       url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-      sha256 = "171d0bhfmmf173wajnfm2gbrw0c4gh16iwyb5vgdnng5jrlnx1xl";
+      sha256 = "1qz6mkp8qjh3nmjm4cbn4m7gadjyr2s9mq06dqjk9px265143slg";
     }))
    
     (self: super: {

@@ -1,0 +1,4 @@
+add home-manager
+add git repos to home
+better intergration between two machines, e.i. network adapters
+organize like github.com/wiltaylor/dotfiles
